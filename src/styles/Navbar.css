@@ -6,15 +6,16 @@
   left: 0;
   z-index: 1000;
   box-sizing: border-box;
-  background-color: #111111;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease-in-out;
 }
 
 .nav.scrolled {
-  background-color: rgba(17, 17, 17, 0.85);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  background: rgba(10, 10, 10, 0.72);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
 }
 
 .nav-inner {
@@ -23,65 +24,49 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: 68px;
   transition: height 0.3s ease-in-out;
 }
 
 .nav-inner-scrolled {
-  height: 60px;
+  height: 64px;
 }
 
 .logo {
   color: #ffffff;
   font-size: 22px;
   font-family: 'Courier New', Courier, monospace;
-  letter-spacing: -1px;
+  letter-spacing: -0.04em;
   text-decoration: none;
 }
 
 .logo-accent {
-  color: #fefeff;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-links {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  color: #a1a1aa;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 10px 15px;
-  border-radius: 8px;
-  position: relative;
-  transition: color 0.2s ease;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border-radius: 999px;
+  transition: color 0.2s ease, background 0.2s ease;
   display: block;
 }
 
 .nav-link:hover {
-  color: #818cf8;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 5px;
-  left: 15px;
-  right: 15px;
-  height: 2px;
-  background-color: #818cf8;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: bottom left;
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
@@ -90,11 +75,12 @@
   }
 
   .nav-links {
-    gap: 0px;
+    gap: 6px;
   }
 
   .nav-link {
-    font-size: 14px;
-    padding: 10px 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    padding: 8px 10px;
   }
 }
