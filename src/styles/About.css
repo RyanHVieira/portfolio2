@@ -15,6 +15,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  position: relative;
 }
 
 .hero-copy {
@@ -73,4 +74,38 @@
   .hero-badge {
     min-width: unset;
   }
+}
+
+.hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+}
+
+.github-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-badge svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+
+.github-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: grayscale(1) invert(1);
 }

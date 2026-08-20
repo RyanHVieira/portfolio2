@@ -7,14 +7,19 @@ export default function About() {
         <p className="eyebrow">Portfolio</p>
         <h1>Ryan</h1>
         <p className="hero-text">
-          Desenvolvedor focado em interfaces limpas, performáticas e com visual
-          refinado. Crio experiências digitais que equilibram estética,
-          funcionalidade e clareza.
+          lorem ipsum legal
         </p>
       </div>
 
-      <div className="hero-badge">
-        <span>Disponível para projetos</span>
+      <div className="hero-badges">
+        <div className="github-badge">
+          <a href="https://github.com/RyanHVieira" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="53" height="53"/>
+          </a>
+        </div>
+        <div className="hero-badge">
+          <span>Desenvolvedor Full-Stack </span>
+        </div>
       </div>
     </section>
   );

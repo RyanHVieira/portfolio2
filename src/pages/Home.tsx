@@ -1,42 +1,50 @@
-import About from "../components/About";
 import Navbar from "../components/Navbar";
-import ProjectCard from "../components/ProjectCard";
-import "../styles/Home.css";
+import CardHolder from "../components/CardHolder";
+import About from "../components/About";
+import Skills from "../components/Skills";
+import Experience from "../components/Experience";
+
+const projects = [
+  {
+    title: "CoPlace",
+    description: "Uma plataforma desenvolvida para conectar pessoas e projetos.",
+    image: "/projects/coplace.png",
+    slug: "coplace",
+  },
+  {
+    title: "Pixel Canvas",
+    description: "Uma plataforma colaborativa de pixel art.",
+    image: "/projects/pixelcanvas.png",
+    slug: "pixel-canvas",
+  },
+  {
+    title: "Outro Projeto",
+    description: "Descrição do meu projeto.",
+    image: "/projects/outro.png",
+    slug: "outro-projeto",
+  },
+  {
+    title: "Outro Projeto2",
+    description: "Descrição do meu projeto.",
+    image: "/projects/outro.png",
+    slug: "outro-projeto2",
+  },
+  {
+    title: "Outro Projeto3",
+    description: "Descrição do meu projeto.",
+    image: "/projects/outro.png",
+    slug: "outro-projeto3",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="home-page">
+    <>
       <Navbar />
       <About/>
-
-      <section id="projects" className="projects-section">
-        <div className="section-header">
-          <p className="eyebrow">Projetos</p>
-          <h2>Seleção de trabalhos</h2>
-        </div>
-
-        <div className="projects-list">
-          <ProjectCard
-            title="CoPlace"
-            description="Uma plataforma desenvolvida para conectar pessoas e projetos."
-            image="/projects/coplace.png"
-            slug="coplace"
-          />
-
-          <ProjectCard
-            title="Pixel Art"
-            description="Uma plataforma colaborativa para criação de pixel art."
-            image="/projects/pixel-art.png"
-            slug="pixel-art"
-          />
-        </div>
-      </section>
-
-      <footer id="contact" className="contact-section glass-panel">
-        <p className="eyebrow">Contato</p>
-        <h3>Vamos criar algo com identidade e impacto.</h3>
-        <a href="mailto:ryan@portfolio.dev">ryan@portfolio.dev</a>
-      </footer>
-    </main>
+      <Experience />
+      <Skills />
+      <CardHolder projects={projects} />
+    </>
   );
 }
