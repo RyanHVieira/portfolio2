@@ -3,9 +3,11 @@ import Panel from "./Panel";
 
 export default function About() {
   return (
-   <Panel id="about" className="hero" title="Ryan" category="About">
+    <Panel id="about" className="hero">
       <div className="hero-copy">
-        <p className="hero-text">
+        <p className="eyebrow">About</p>
+        <h1>Ryan</h1>
+        <p className="hero-text"> //desc
           Desenvolvedor Full-Stack apaixonado por tecnologia, desenvolvimento
           de software e criação de projetos.
         </p>
