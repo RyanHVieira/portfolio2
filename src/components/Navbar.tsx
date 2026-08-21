@@ -22,7 +22,6 @@ export default function Navbar() {
         <a href="#" className="logo">
           <span className="logo-accent">&lt;</span>Ryan<span className="logo-accent"> /&gt;</span>
         </a>
-
         <ul className="nav-links">
           {navLinks.map((link) => (
             <li key={link.name}>

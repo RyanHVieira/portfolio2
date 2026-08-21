@@ -39,48 +39,25 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
   }, [projects.length]);
 
   return (
-    <Panel
-      id="projects"
-      className="project-panel"
-      title="Meus projetos"
-      category="Projects"
-    >
+    <Panel id="projects" className="project-panel" title="Meus projetos" category="Projects">
       <div className="project-holder-track">
         {projects.map((project, index) => {
-          const offset =
-            (index - active + projects.length) % projects.length;
-
+          const offset = (index - active + projects.length) % projects.length;
           let position = "hidden";
-
           if (offset === 0) position = "center";
           else if (offset === 1) position = "right";
           else if (offset === projects.length - 1) position = "left";
-
           return (
-            <div
-              key={project.slug}
-              className={`project-holder-card ${position}`}
-              onClick={() => {
-                setActive(index);
-                resetInterval();
-              }}
-            >
+            <div key={project.slug} className={`project-holder-card ${position}`} onClick={() => { setActive(index); resetInterval();}}>
               <ProjectCard {...project} />
             </div>
           );
         })}
       </div>
-
       <div className="project-holder-dots">
         {projects.map((project, index) => (
-          <button
-            key={project.slug}
-            className={index === active ? "active" : ""}
-            onClick={() => {
-              setActive(index);
-              resetInterval();
-            }}
-            aria-label={`Mostrar ${project.title}`}
+          <button key={project.slug} className={index === active ? "active" : ""} onClick={() => { 
+            setActive(index); resetInterval();}} aria-label={`Mostrar ${project.title}`}
           />
         ))}
       </div>

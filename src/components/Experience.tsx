@@ -3,20 +3,11 @@ import Panel from "./Panel"
 
 export default function Experience() {
   return (
-    <Panel
-              id="projects"
-              className="project-panel"
-              title="My Experiences"
-              category="Experience"
-            >
-      <h2 className="eyebrow">Experience</h2>
-      <h2 className="section-title">My experiences</h2>
+    <Panel id="projects" className="project-panel" title="My Experiences" category="Experience">
       <p className="section-sub">Minhas experiências até agora.</p>
       <div className="exp-columns">
-        {/* Academic Column */}
         <div className="exp-column">
           <h3 className="exp-column-title">Estudo</h3>
-
           <div className="exp-item">
             <div className="exp-period">2022 — 2024</div>
             <div>
@@ -25,7 +16,6 @@ export default function Experience() {
               <p className="exp-desc"><span className="prompt">{'>'}</span>Elaborei projetos escolares em desenvolvimento web, lógica, banco de dados e UX/UI design.</p>
             </div>
           </div>
-
           <div className="exp-item">
             <div className="exp-period">2025 — 2028</div>
             <div>
@@ -37,11 +27,8 @@ export default function Experience() {
             </div>
           </div>
         </div>
-
-        {/* Professional Column */}
         <div className="exp-column">
           <h3 className="exp-column-title">Trabalho</h3>
-
           <div className="exp-item">
             <div className="exp-period">2025 — atual</div>
             <div>

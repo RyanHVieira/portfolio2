@@ -3,14 +3,7 @@ import Panel from "./Panel"
 
 export default function Skills() {
   return (
-    <Panel
-              id="projects"
-              className="project-panel"
-              title="My Skills"
-              category="Skills"
-            >
-      <h2 className="eyebrow">Skills</h2>
-      <h2>My Skills</h2>
+    <Panel id="projects" className="project-panel" title="My Skills" category="Skills">
       <p className="section-sub">Aqui umas ferramentas que já utilizei em meus projetos ou estou em processo de aprendizado.</p>
       <div className="skill-group">
         <h4>Linguagens</h4>
