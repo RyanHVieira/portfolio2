@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
+import Panel from "./Panel";
 import "../styles/CardHolder.css";
 
 interface Project {
@@ -21,6 +22,7 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
+
     intervalRef.current = setInterval(() => {
       setActive((current) => (current + 1) % projects.length);
     }, 8000);
@@ -28,6 +30,7 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
 
   useEffect(() => {
     resetInterval();
+
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -36,7 +39,12 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
   }, [projects.length]);
 
   return (
-    <section className="project-holder">
+    <Panel
+      id="projects"
+      className="project-panel"
+      title="Meus projetos"
+      category="Projects"
+    >
       <div className="project-holder-track">
         {projects.map((project, index) => {
           const offset =
@@ -76,6 +84,6 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
           />
         ))}
       </div>
-    </section>
+    </Panel>
   );
 }

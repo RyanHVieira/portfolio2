@@ -1,9 +1,16 @@
 import "../styles/Experience.css";
+import Panel from "./Panel"
 
 export default function Experience() {
   return (
-    <section className="card exp-card">
-      <h2 className="section-title">Experience</h2>
+    <Panel
+              id="projects"
+              className="project-panel"
+              title="My Experiences"
+              category="Experience"
+            >
+      <h2 className="eyebrow">Experience</h2>
+      <h2 className="section-title">My experiences</h2>
       <p className="section-sub">Minhas experiências até agora.</p>
       <div className="exp-columns">
         {/* Academic Column */}
@@ -51,6 +58,6 @@ export default function Experience() {
           </div>
         </div>
       </div>
-    </section>
+    </Panel>
   );
 }

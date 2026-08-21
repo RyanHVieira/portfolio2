@@ -1,26 +1,30 @@
 import "../styles/About.css";
+import Panel from "./Panel";
 
 export default function About() {
   return (
-    <section id="about" className="hero glass-panel">
+    <Panel
+          id="projects"
+          className="project-panel"
+          title="Ryan"
+          category="About"
+        >
       <div className="hero-copy">
-        <p className="eyebrow">Portfolio</p>
-        <h1>Ryan</h1>
         <p className="hero-text">
-          lorem ipsum legal
+          Desenvolvedor Full-Stack apaixonado por tecnologia, desenvolvimento
+          de software e criação de projetos.
         </p>
       </div>
-
       <div className="hero-badges">
         <div className="github-badge">
-          <a href="https://github.com/RyanHVieira" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="53" height="53"/>
+          <a href="https://github.com/RyanHVieira" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub"/>
           </a>
         </div>
         <div className="hero-badge">
-          <span>Desenvolvedor Full-Stack </span>
+          <span>Desenvolvedor Full-Stack</span>
         </div>
       </div>
-    </section>
+    </Panel>
   );
 }

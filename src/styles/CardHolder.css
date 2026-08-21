@@ -7,106 +7,159 @@
   --hidden-scale: 0.3;
 }
 
-.project-holder {
-  max-width: 1200px;
-  margin: 110px auto 36px;
-  padding: 56px 32px;
-  position: relative;
+/* =========================
+   PROJECT PANEL
+========================= */
+
+.project-panel {
   overflow: hidden;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
-@media (max-width: 720px) {
-  .project-holder {
-    margin-top: 92px;
-    padding: 28px 20px;
-  }
-}
+/* =========================
+   CARDS
+========================= */
 
 .project-holder-track {
   position: relative;
+
   width: 100%;
-  min-height: 420px;
-  height: auto;
+  height: 420px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   perspective: 1200px;
 }
 
 .project-holder-card {
   position: absolute;
+
   width: min(600px, 50%);
+
   transition:
     transform 0.8s ease,
     opacity 0.8s ease,
     filter 0.8s ease;
+
+  cursor: pointer;
 }
+
+/* Card principal */
 
 .project-holder-card.center {
   transform: translateX(0) scale(1);
+
   opacity: 1;
   z-index: 3;
+
   filter: none;
+
+  cursor: default;
 }
+
+/* Card esquerda */
 
 .project-holder-card.left {
-  transform: translateX(calc(var(--card-offset) * -1)) scale(var(--card-scale)) rotateY(var(--card-rotate));
+  transform:
+    translateX(calc(var(--card-offset) * -1))
+    scale(var(--card-scale))
+    rotateY(var(--card-rotate));
+
   opacity: var(--card-opacity);
   z-index: 2;
+
   filter: brightness(var(--card-brightness));
 }
 
+/* Card direita */
+
 .project-holder-card.right {
-  transform: translateX(var(--card-offset)) scale(var(--card-scale)) rotateY(calc(var(--card-rotate) * -1));
+  transform:
+    translateX(var(--card-offset))
+    scale(var(--card-scale))
+    rotateY(calc(var(--card-rotate) * -1));
+
   opacity: var(--card-opacity);
   z-index: 2;
+
   filter: brightness(var(--card-brightness));
 }
+
+/* Cards que não estão visíveis */
 
 .project-holder-card.hidden {
   transform: translateX(0) scale(var(--hidden-scale));
+
   opacity: 0;
   z-index: 1;
+
   pointer-events: none;
 }
 
-.project-holder-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.project-holder-dots button {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  background: #777;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.project-holder-dots button.active {
-  width: 24px;
-  border-radius: 10px;
-  background: #fff;
-}
-
-.project-holder-card.left,
-.project-holder-card.right {
-  cursor: pointer;
-}
+/* Hover nos cards laterais */
 
 .project-holder-card.left:hover,
 .project-holder-card.right:hover {
   opacity: 0.8;
   filter: brightness(0.9);
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.project-holder-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 8px;
+}
+
+.project-holder-dots button {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #777;
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.project-holder-dots button.active {
+  width: 24px;
+
+  border-radius: 10px;
+
+  background: #fff;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 720px) {
+  .project-holder-track {
+    height: 300px;
+  }
+
+  .project-holder-card {
+    width: 75%;
+  }
+
+  .project-holder-card.left,
+  .project-holder-card.right {
+    opacity: 0.25;
+  }
 }

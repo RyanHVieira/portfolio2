@@ -1,0 +1,58 @@
+.panel {
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 40px 32px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-sizing: border-box;
+}
+
+/* Título padrão de todos os Panels */
+
+.panel-header {
+  margin-bottom: 32px;
+}
+
+.panel-title {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+.panel-subtitle {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Mobile */
+
+@media (max-width: 720px) {
+  .panel {
+    width: calc(100% - 24px);
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .panel-header {
+    margin-bottom: 24px;
+  }
+}

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/ProjectCard.css";
+import Panel from "./Panel";
 
 interface ProjectCardProps {
   title: string;
