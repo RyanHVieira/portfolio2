@@ -1,49 +1,47 @@
+import type { ReactNode } from "react";
 import "../styles/Experience.css";
-import Panel from "./Panel"
+import Panel from "./Panel";
 
-export default function Experience() {
+interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  description: ReactNode;
+}
+
+interface ExperienceColumn {
+  title: string;
+  items: ExperienceItem[];
+}
+
+interface ExperienceProps {
+  columns: ExperienceColumn[];
+}
+
+export default function Experience({ columns }: ExperienceProps) {
   return (
-    <Panel id="projects" className="project-panel" title="My Experiences" category="Experience">
+    <Panel id="experience">
+      <h2 className="section-title">Experience</h2>
       <p className="section-sub">Minhas experiências até agora.</p>
       <div className="exp-columns">
-        <div className="exp-column">
-          <h3 className="exp-column-title">Estudo</h3>
-          <div className="exp-item">
-            <div className="exp-period">2022 — 2024</div>
-            <div>
-              <div className="exp-role">Ensino Médio / Técnico em Informática</div>
-              <div className="exp-company">Cedup Hermann Hering</div>
-              <p className="exp-desc"><span className="prompt">{'>'}</span>Elaborei projetos escolares em desenvolvimento web, lógica, banco de dados e UX/UI design.</p>
-            </div>
+        {columns.map((column, colIndex) => (
+          <div key={`exp-column-${colIndex}`} className="exp-column">
+            <h3 className="exp-column-title">{column.title}</h3>
+
+            {column.items.map((item, itemIndex) => (
+              <div key={`exp-item-${colIndex}-${itemIndex}`} className="exp-item">
+                <div className="exp-period">{item.period}</div>
+                <div>
+                  <div className="exp-role">{item.role}</div>
+                  <div className="exp-company">{item.company}</div>
+                  {typeof item.description === "string" ? (
+                    <p className="exp-desc"><span className="prompt">{'>'}</span>{item.description}</p>
+                  ) : item.description}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="exp-item">
-            <div className="exp-period">2025 — 2028</div>
-            <div>
-              <div className="exp-role">Bacharelado em Ciência da Computação</div>
-              <div className="exp-company">FURB - Fundação Universidade Regional de Blumenau</div>
-              <p className="exp-desc"><span className="prompt">{'>'}</span>Desenvolvimento JAVA, SQL, JavaScript, HTML e CSS.</p>
-              <p className="exp-desc"><span className="prompt">{'>'}</span>Banco de Dados.</p>
-              <p className="exp-desc"><span className="prompt">{'>'}</span>UI/UX Design.</p>
-            </div>
-          </div>
-        </div>
-        <div className="exp-column">
-          <h3 className="exp-column-title">Trabalho</h3>
-          <div className="exp-item">
-            <div className="exp-period">2025 — atual</div>
-            <div>
-              <div className="exp-role">Suporte Técnico de TI (autônomo)</div>
-              <div className="exp-company">Empresas que já ofereci suporte:</div>
-              <ul>
-                <li>FabiDiscos</li>
-                <li>SpaceKids</li>
-                <li>FitaMágica Presentes</li>
-              </ul>
-              <br />
-              <p className="exp-desc"><span className="prompt">{'>'}</span>Manutenção e reparo de equipamentos de informática, rede e suporte técnico nos sistemas.</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </Panel>
   );

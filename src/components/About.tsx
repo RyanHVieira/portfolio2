@@ -7,7 +7,7 @@ export default function About() {
       <div className="hero-copy">
         <p className="eyebrow">About</p>
         <h1>Ryan</h1>
-        <p className="hero-text"> //desc
+        <p className="hero-text"> {/*desc*/}
           Desenvolvedor Full-Stack apaixonado por tecnologia, desenvolvimento
           de software e criação de projetos.
         </p>
