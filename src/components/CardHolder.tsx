@@ -39,7 +39,7 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
   }, [projects.length]);
 
   return (
-    <Panel id="projects" className="project-panel" title="Meus projetos" category="Projects">
+    <Panel id="projects" className="project-panel" title="" category="Projects">
       <div className="project-holder-track">
         {projects.map((project, index) => {
           const offset = (index - active + projects.length) % projects.length;

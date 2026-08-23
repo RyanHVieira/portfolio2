@@ -18,11 +18,9 @@ interface SkillsProps {
   sectionSub?: string;
 }
 
-export default function Skills({ groups, sectionSub = "Aqui umas ferramentas que já utilizei em meus projetos ou estou em processo de aprendizado." }: SkillsProps) {
+export default function Skills({ groups,}: SkillsProps) {
   return (
-    <Panel id="skills">
-      <h2>Skills</h2>
-      <p className="section-sub">{sectionSub}</p>
+    <Panel id="Skills" className="skills" title="" category="Skills">
       {groups.map((group, groupIndex) => (
         <div key={`skill-group-${groupIndex}`} className="skill-group">
           <h4>{group.title}</h4>

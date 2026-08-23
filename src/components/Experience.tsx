@@ -20,9 +20,7 @@ interface ExperienceProps {
 
 export default function Experience({ columns }: ExperienceProps) {
   return (
-    <Panel id="experience">
-      <h2 className="section-title">Experience</h2>
-      <p className="section-sub">Minhas experiências até agora.</p>
+    <Panel id="experience" className="experience" title="My experiences" category="Experiences">
       <div className="exp-columns">
         {columns.map((column, colIndex) => (
           <div key={`exp-column-${colIndex}`} className="exp-column">
