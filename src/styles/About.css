@@ -2,23 +2,21 @@
   margin-top: 100px;
   padding: 56px 32px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
   position: relative;
 }
 
-.hero-copy {
-  max-width: 760px;
+/* Zera a margem inferior do header APENAS dentro do Hero */
+.hero .panel-header {
+  margin-bottom: 0;
 }
 
-.eyebrow {
-  margin: 0 0 16px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+/* Escopado apenas para o hero, para evitar conflito com outros componentes */
+.hero-copy {
+  max-width: 760px;
 }
 
 .hero-text {
@@ -33,7 +31,6 @@
   position: absolute;
   right: 32px;
   bottom: 32px;
-
   display: flex;
   align-items: center;
   gap: 12px;
@@ -48,6 +45,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .github-badge a {
@@ -79,19 +78,21 @@
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 @media (max-width: 720px) {
   .hero {
-    margin-top: 222px;
+    margin-top: 40px;
     padding: 28px 20px;
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .hero-badges {
     position: static;
-    margin-top: 24px;
+    margin-top: 16px;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .hero-badge {

@@ -12,21 +12,41 @@
   box-sizing: border-box;
 }
 
+/* Header do painel */
 .panel-header {
   margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+/* h2 (Subtítulo/Categoria pequeno no topo) */
+.panel-header h2.eyebrow,
+.eyebrow {
+  margin: 0 0 8px 0 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.75rem !important; /* Tamanho pequeno forçado */
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  display: block !important;
+}
+
+/* h1 (Título principal grande) */
+.panel-header h1.panel-title,
 .panel-title {
-  margin: 0 0 8px;
-  color: #ffffff;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.05em;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important; /* Tamanho grande */
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.04em !important;
+  display: block !important;
 }
 
 .panel-subtitle {
-  margin: 0;
+  margin: 12px 0 0 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
   line-height: 1.6;

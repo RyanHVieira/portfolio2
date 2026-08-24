@@ -8,7 +8,7 @@ interface PanelProps {
   category?: string;
 }
 
-export default function Panel({children, className = "", id, title, category,}: PanelProps) {
+export default function Panel({ children, className = "", id, title, category }: PanelProps) {
   return (
     <section id={id} className={`panel ${className}`}>
       {(category || title) && (
