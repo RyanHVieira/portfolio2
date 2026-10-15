@@ -2,49 +2,27 @@ import { Link, useParams } from 'react-router-dom'
 import Panel from "../components/Panel"
 import FunctionCards from "../components/FunctionCards"
 import "../styles/ProjectDetail.css"
+import { useTranslation } from "../i18n/useTranslation"
 
 export default function ProjectDetail() {
   const { slug } = useParams()
+  const t = useTranslation()
 
-  // Mock projects data - in a real app, this would be imported or fetched
-  const mockProjects = [
-    {
-      title: "CoPlace",
-      description: "Uma plataforma desenvolvida para conectar pessoas e projetos.",
-      slug: "coplace",
-    },
-    {
-      title: "Pixel Canvas",
-      description: "Uma plataforma colaborativa de pixel art.",
-      slug: "pixel-canvas",
-    },
-    {
-      title: "Outro Projeto",
-      description: "Descrição do meu projeto.",
-      slug: "outro-projeto",
-    },
-    {
-      title: "Outro Projeto2",
-      description: "Descrição do meu projeto.",
-      slug: "outro-projeto2",
-    },
-    {
-      title: "Outro Projeto3",
-      description: "Descrição do meu projeto.",
-      slug: "outro-projeto3",
-    }
-  ];
+  // Get project data from translations
+  const projectTitle = t(`projects.${slug}.title`)
+  const projectDescription = t(`projects.${slug}.description`)
 
-  const project = mockProjects.find(p => p.slug === slug);
+  // Check if project exists (if translation returns the key itself, treat as missing)
+  const projectExists = projectTitle !== `projects.${slug}.title` && projectDescription !== `projects.${slug}.description`
 
-  if (!project) {
+  if (!projectExists) {
     return (
       <main style={{ padding: '2rem', color: '#fff', textAlign: 'center' }}>
         <Link to="/" style={{ color: '#8be9fd', textDecoration: 'none', marginBottom: '2rem', display: 'inline-block' }}>
-          ← Voltar
+          {t('projectDetail.backLink')}
         </Link>
-        <h1>Projeto não encontrado</h1>
-        <p>O projeto solicitado não existe.</p>
+        <h1>{t('projectDetail.notFoundTitle')}</h1>
+        <p>{t('projectDetail.notFoundDescription')}</p>
       </main>
     )
   }
@@ -64,13 +42,13 @@ export default function ProjectDetail() {
           borderRadius: '4px',
           transition: 'all 0.3s ease'
         }}>
-          <span>←</span> Voltar
+          <span>←</span> {t('projectDetail.backLink')}
         </Link>
       </div>
 
       <section>
-        <Panel id={project.slug} className={project.slug} title={project.title} category={project.slug}>
-          <h1 style={{ marginTop: '1rem', textAlign: 'center' }}>{project.title}</h1>
+        <Panel id={slug} className={slug} title={projectTitle} category={slug}>
+          <h1 style={{ marginTop: '1rem', textAlign: 'center' }}>{projectTitle}</h1>
           <p style={{
             textAlign: 'center',
             color: '#ccc',
@@ -78,7 +56,7 @@ export default function ProjectDetail() {
             margin: '1rem auto',
             lineHeight: '1.6'
           }}>
-            {project.description}
+            {projectDescription}
           </p>
 
           <FunctionCards slug={slug!} />

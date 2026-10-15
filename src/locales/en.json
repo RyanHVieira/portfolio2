@@ -1,0 +1,66 @@
+{
+  "navbar": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "languageToggle": "PT/EN"
+  },
+  "about": {
+    "title": "Ryan",
+    "category": "About",
+    "heroText": "Full-stack developer passionate about technology, software development, and project creation.",
+    "githubAriaLabel": "GitHub",
+    "heroBadgeText": "Full-stack Developer"
+  },
+  "experience": {
+    "title": "My experiences",
+    "category": "Experiences",
+    "study": "Study",
+    "work": "Work"
+  },
+  "skills": {
+    "title": "",
+    "category": "Skills"
+  },
+  "projectCard": {
+    "detailsButton": "Project Details"
+  },
+  "contact": {
+    "title": "Contact",
+    "category": "Get in touch",
+    "heroText": "Feel free to contact me through the platforms below.",
+    "linkedinAriaLabel": "LinkedIn",
+    "gmailAriaLabel": "Gmail",
+    "githubAriaLabel": "GitHub"
+  },
+  "projectDetail": {
+    "backLink": "← Back",
+    "notFoundTitle": "Project not found",
+    "notFoundDescription": "The requested project does not exist.",
+    "backLinkAlt": "← Back"
+  },
+  "projects": {
+    "coplace": {
+      "title": "CoPlace",
+      "description": "A platform developed to connect people and projects."
+    },
+    "pixel-canvas": {
+      "title": "Pixel Canvas",
+      "description": "A collaborative pixel art platform."
+    },
+    "outro-projeto": {
+      "title": "Another Project",
+      "description": "Description of my project."
+    },
+    "outro-projeto2": {
+      "title": "Another Project 2",
+      "description": "Description of my project."
+    },
+    "outro-projeto3": {
+      "title": "Another Project 3",
+      "description": "Description of my project."
+    }
+  }
+}

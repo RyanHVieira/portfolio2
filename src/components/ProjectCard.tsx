@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/ProjectCard.css";
+import { useTranslation } from "../i18n/useTranslation";
 
 interface ProjectCardProps {
   title: string;
@@ -15,6 +16,7 @@ export default function ProjectCard({
   slug,
 }: ProjectCardProps) {
   const navigate = useNavigate();
+  const t = useTranslation();
 
   return (
     <article className="project-card">
@@ -24,7 +26,7 @@ export default function ProjectCard({
         <p>{description}</p>
 
         <button onClick={() => navigate(`/projects/${slug}`)}>
-          Project Details
+          {t('projectCard.detailsButton')}
         </button>
       </div>
 

@@ -1,5 +1,6 @@
 import "../styles/Skills.css";
 import Panel from "./Panel";
+import { useTranslation } from "../i18n/useTranslation";
 
 interface SkillItem {
   label: string;
@@ -19,8 +20,10 @@ interface SkillsProps {
 }
 
 export default function Skills({ groups }: SkillsProps) {
+  const t = useTranslation();
+
   return (
-    <Panel id="Skills" className="skills-card" title="" category="Skills">
+    <Panel id="Skills" className="skills-card" title={t('skills.title')} category={t('skills.category')}>
       {groups.map((group, groupIndex) => (
         <div key={`skill-group-${groupIndex}`} className="skill-group">
           <h4>{group.title}</h4>

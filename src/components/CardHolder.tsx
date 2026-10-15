@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import Panel from "./Panel";
 import "../styles/CardHolder.css";
+import { useTranslation } from "../i18n/useTranslation";
 
 interface Project {
   title: string;
@@ -17,6 +18,7 @@ interface ProjectHolderProps {
 export default function ProjectHolder({ projects }: ProjectHolderProps) {
   const [active, setActive] = useState(0);
   const intervalRef = useRef<number | null>(null);
+  const t = useTranslation();
 
   const resetInterval = () => {
     if (intervalRef.current) {
@@ -39,7 +41,7 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
   }, [projects.length]);
 
   return (
-    <Panel id="projects" className="project-panel" title="" category="Projects">
+    <Panel id="projects" className="project-panel" title="" category={t('navbar.projects')}>
       <div className="project-holder-track">
         {projects.map((project, index) => {
           const offset = (index - active + projects.length) % projects.length;
@@ -47,19 +49,33 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
           if (offset === 0) position = "center";
           else if (offset === 1) position = "right";
           else if (offset === projects.length - 1) position = "left";
+
+          // Get localized title and description, fallback to original if translation missing
+          const localizedTitle = t(`projects.${project.slug}.title`) || project.title;
+          const localizedDescription = t(`projects.${project.slug}.description`) || project.description;
+
+          const localizedProject = {
+            ...project,
+            title: localizedTitle,
+            description: localizedDescription
+          };
+
           return (
             <div key={project.slug} className={`project-holder-card ${position}`} onClick={() => { setActive(index); resetInterval();}}>
-              <ProjectCard {...project} />
+              <ProjectCard {...localizedProject} />
             </div>
           );
         })}
       </div>
       <div className="project-holder-dots">
-        {projects.map((project, index) => (
-          <button key={project.slug} className={index === active ? "active" : ""} onClick={() => { 
-            setActive(index); resetInterval();}} aria-label={`Mostrar ${project.title}`}
-          />
-        ))}
+        {projects.map((project, index) => {
+          const localizedTitle = t(`projects.${project.slug}.title`) || project.title;
+          return (
+            <button key={project.slug} className={index === active ? "active" : ""} onClick={() => {
+              setActive(index); resetInterval();}} aria-label={`Mostrar ${localizedTitle}`}
+            />
+          );
+        })}
       </div>
     </Panel>
   );

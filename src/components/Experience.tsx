@@ -1,6 +1,7 @@
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
 import "../styles/Experience.css";
 import Panel from "./Panel";
+import { useTranslation } from "../i18n/useTranslation";
 
 interface ExperienceItem {
   period: string;
@@ -19,8 +20,10 @@ interface ExperienceProps {
 }
 
 export default function Experience({ columns }: ExperienceProps) {
+  const t = useTranslation();
+
   return (
-    <Panel id="experience" className="experience" title="My experiences" category="Experiences">
+    <Panel id="experience" className="experience" title={t('experience.title')} category={t('experience.category')}>
       <div className="exp-columns">
         {columns.map((column, colIndex) => (
           <div key={`exp-column-${colIndex}`} className="exp-column">

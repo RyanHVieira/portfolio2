@@ -1,0 +1,66 @@
+{
+  "navbar": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "languageToggle": "EN/PT"
+  },
+  "about": {
+    "title": "Ryan",
+    "category": "Sobre",
+    "heroText": "Desenvolvedor Full-Stack apaixonado por tecnologia, desenvolvimento de software e criação de projetos.",
+    "githubAriaLabel": "GitHub",
+    "heroBadgeText": "Desenvolvedor Full-Stack"
+  },
+  "experience": {
+    "title": "Minhas experiências",
+    "category": "Experiências",
+    "study": "Estudo",
+    "work": "Trabalho"
+  },
+  "skills": {
+    "title": "",
+    "category": "Habilidades"
+  },
+  "projectCard": {
+    "detailsButton": "Detalhes do projeto"
+  },
+  "contact": {
+    "title": "Contato",
+    "category": "Entre em contato",
+    "heroText": "Fique à vontade para me contatar através das plataformas abaixo.",
+    "linkedinAriaLabel": "LinkedIn",
+    "gmailAriaLabel": "Gmail",
+    "githubAriaLabel": "GitHub"
+  },
+  "projectDetail": {
+    "backLink": "← Voltar",
+    "notFoundTitle": "Projeto não encontrado",
+    "notFoundDescription": "O projeto solicitado não existe.",
+    "backLinkAlt": "← Voltar"
+  },
+  "projects": {
+    "coplace": {
+      "title": "CoPlace",
+      "description": "Uma plataforma desenvolvida para conectar pessoas e projetos."
+    },
+    "pixel-canvas": {
+      "title": "Pixel Canvas",
+      "description": "Uma plataforma colaborativa de pixel art."
+    },
+    "outro-projeto": {
+      "title": "Outro Projeto",
+      "description": "Descrição do meu projeto."
+    },
+    "outro-projeto2": {
+      "title": "Outro Projeto2",
+      "description": "Descrição do meu projeto."
+    },
+    "outro-projeto3": {
+      "title": "Outro Projeto3",
+      "description": "Descrição do meu projeto."
+    }
+  }
+}
