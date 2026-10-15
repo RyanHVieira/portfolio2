@@ -1,0 +1,80 @@
+.hero {
+  margin-top: 100px;
+  padding: 56px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  position: relative;
+}
+
+/* Zera a margem inferior do header APENAS dentro do Hero */
+.hero .panel-header {
+  margin-bottom: 0;
+}
+
+/* Escopado apenas para o hero, para evitar conflito com outros componentes */
+.hero-copy {
+  max-width: 760px;
+}
+
+.hero-text {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.hero-badges {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Todos os badges seguem o mesmo estilo do botão GitHub do About */
+.contact-badge {
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.contact-badge a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-badge img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.9;
+  filter: grayscale(1) invert(1);
+}
+
+@media (max-width: 720px) {
+  .hero {
+    margin-top: 40px;
+    padding: 28px 20px;
+  }
+
+  .hero-badges {
+    position: static;
+    margin-top: 16px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

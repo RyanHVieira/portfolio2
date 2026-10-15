@@ -3,6 +3,7 @@ import CardHolder from "../components/CardHolder";
 import About from "../components/About";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
+import Contact from "../components/Contact";
 import { projects } from "../data/projects";
 
 const experienceData = [
@@ -101,6 +102,7 @@ export default function Home() {
       <Experience columns={experienceData} />
       <Skills groups={skillsData} />
       <CardHolder projects={projects} />
+      <Contact />
     </>
   );
 }

@@ -9,12 +9,10 @@
   position: relative;
 }
 
-/* Zera a margem inferior do header APENAS dentro do Hero */
 .hero .panel-header {
   margin-bottom: 0;
 }
 
-/* Escopado apenas para o hero, para evitar conflito com outros componentes */
 .hero-copy {
   max-width: 760px;
 }

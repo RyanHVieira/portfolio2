@@ -74,7 +74,6 @@
   margin-right: 8px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 880px) {
   .exp-item {
     grid-template-columns: 1fr;
