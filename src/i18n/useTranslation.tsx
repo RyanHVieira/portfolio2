@@ -5,4 +5,9 @@ export const useTranslation = () => {
   return t;
 };
 
+export const useTranslationObject = () => {
+  const { tObject } = useLanguage();
+  return tObject;
+};
+
 export { useLanguage };

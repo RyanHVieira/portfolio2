@@ -62,5 +62,184 @@
       "title": "Another Project 3",
       "description": "Description of my project."
     }
-  }
+  },
+  "skillsData": [
+    {
+      "title": "Languages",
+      "skills": [
+        {
+          "label": "JavaScript",
+          "badge": "JS",
+          "bgColor": "#f7df1e",
+          "textColor": "#1a1200"
+        },
+        {
+          "label": "Java",
+          "badge": "J",
+          "bgColor": "#007396",
+          "textColor": "#fff"
+        },
+        {
+          "label": "HTML",
+          "badge": "H",
+          "bgColor": "#e34c26",
+          "textColor": "#fff"
+        },
+        {
+          "label": "CSS",
+          "badge": "C",
+          "bgColor": "#563d7c",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Python",
+          "badge": "Py",
+          "bgColor": "#3776ab",
+          "textColor": "#fff"
+        },
+        {
+          "label": "TypeScript",
+          "badge": "TS",
+          "bgColor": "#000080",
+          "textColor": "#fff"
+        }
+      ]
+    },
+    {
+      "title": "Frameworks & Libraries",
+      "skills": [
+        {
+          "label": "React",
+          "badge": "R",
+          "bgColor": "#61dafb",
+          "textColor": "#06222b"
+        },
+        {
+          "label": "Node.js",
+          "badge": "N",
+          "bgColor": "#68a063",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Angular",
+          "badge": "A",
+          "bgColor": "#ff3e00",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Spring Boot",
+          "badge": "SB",
+          "bgColor": "#007396",
+          "textColor": "#fff"
+        }
+      ]
+    },
+    {
+      "title": "Tools",
+      "skills": [
+        {
+          "label": "Git",
+          "badge": "G",
+          "bgColor": "#f1602a",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Docker",
+          "badge": "D",
+          "bgColor": "#007396",
+          "textColor": "#fff"
+        },
+        {
+          "label": "VS Code",
+          "badge": "VS",
+          "bgColor": "#2496ed",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Figma",
+          "badge": "F",
+          "bgColor": "#001e36",
+          "textColor": "#00d4ff"
+        },
+        {
+          "label": "Postman",
+          "badge": "P",
+          "bgColor": "#9999cc",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Webpack",
+          "badge": "W",
+          "bgColor": "#007acc",
+          "textColor": "#fff"
+        }
+      ]
+    },
+    {
+      "title": "Soft Skills",
+      "skills": [
+        {
+          "label": "Teamwork",
+          "badge": "T",
+          "bgColor": "#f1602a",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Communication",
+          "badge": "C",
+          "bgColor": "#ff9500",
+          "textColor": "#fff"
+        },
+        {
+          "label": "Proactivity",
+          "badge": "P",
+          "bgColor": "#4caf50",
+          "textColor": "#fff"
+        }
+      ]
+    }
+  ],
+  "experienceData": [
+    {
+      "title": "Study",
+      "items": [
+        {
+          "period": "2022 — 2024",
+          "role": "High School / Technical in Informatics",
+          "company": "Cedup Hermann Hering",
+          "description": [
+            "I developed school projects in web development, logic, databases, and UX/UI design."
+          ]
+        },
+        {
+          "period": "2025 — 2028",
+          "role": "Bachelor's in Computer Science",
+          "company": "FURB - Regional University of Blumenau Foundation",
+          "description": [
+            "Development in JAVA, SQL, JavaScript, HTML, and CSS.",
+            "Databases.",
+            "UI/UX Design."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Work",
+      "items": [
+        {
+          "period": "2025 — present",
+          "role": "IT Support Technician (autonomous)",
+          "company": "Companies I've provided support to:",
+          "description": [
+            [
+              "FabiDiscos",
+              "SpaceKids",
+              "FitaMágica Presents"
+            ],
+            "Maintenance and repair of computer equipment, network, and technical support in systems."
+          ]
+        }
+      ]
+    }
+  ]
 }

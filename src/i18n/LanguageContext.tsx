@@ -5,6 +5,7 @@ interface LanguageContextProps {
   language: 'en' | 'pt';
   setLanguage: (lang: 'en' | 'pt') => void;
   t: (key: string) => string;
+  tObject: (key: string) => any;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
@@ -19,12 +20,9 @@ export const useLanguage = () => {
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<'en' | 'pt'>('en');
-
-  // Store translations to avoid re-importing on every render
   const [translations, setTranslations] = useState<Record<string, any>>({});
 
   useEffect(() => {
-    // Dynamically import the JSON file for the selected language
     import(`../locales/${language}.json`).then(module => {
       setTranslations(module.default);
     });
@@ -35,8 +33,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     return typeof value === 'string' ? value : key;
   };
 
+  const tObject = (key: string): any => {
+    return key.split('.').reduce((obj, k) => (obj && obj[k] !== null && obj[k] !== undefined) ? obj[k] : undefined, translations);
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, tObject }}>
       {children}
     </LanguageContext.Provider>
   );
