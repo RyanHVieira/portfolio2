@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
       <div className={`nav-inner ${scrolled ? "nav-inner-scrolled" : ""}`}>
         <a href="#" className="logo">
-          <span className="logo-accent">&lt;</span>Ryan<span className="logo-accent"> /&gt;</span>
+          <span className="logo-accent">&lt;</span>Ryan<span className="logo-accent">/&gt;</span>
         </a>
         <ul className="nav-links">
           <li key="about">
@@ -49,9 +49,22 @@ export default function Navbar() {
             <button
               onClick={() => setLanguage(language === 'en' ? 'pt' : 'en')}
               className="nav-link"
-              style={{ padding: '0', background: 'none', border: 'none', color: 'inherit', cursor: 'pointer' }}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+                padding: '0'
+              }}
             >
-              {t('navbar.languageToggle')}
+              {language === 'en' ? (
+                <img src="https://flagcdn.io/flags/4x3/us.svg" alt="USA" width={32} height={32} style={{ borderRadius: '6px' }} />
+              ) : (
+                <img src="https://flagcdn.io/flags/4x3/br.svg" alt="Brasil" width={32} height={32} style={{ borderRadius: '6px' }} />
+              )}
             </button>
           </li>
         </ul>

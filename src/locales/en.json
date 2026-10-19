@@ -28,8 +28,8 @@
     "detailsButton": "Project Details"
   },
   "contact": {
-    "title": "Contact",
-    "category": "Get in touch",
+    "title": "Find me",
+    "category": "Contact",
     "heroText": "Feel free to contact me through the platforms below.",
     "linkedinAriaLabel": "LinkedIn",
     "gmailAriaLabel": "Gmail",

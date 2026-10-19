@@ -29,7 +29,7 @@
   },
   "contact": {
     "title": "Contato",
-    "category": "Entre em contato",
+    "category": "Me contate",
     "heroText": "Fique à vontade para me contatar através das plataformas abaixo.",
     "linkedinAriaLabel": "LinkedIn",
     "gmailAriaLabel": "Gmail",
@@ -176,22 +176,22 @@
       ]
     },
     {
-      "title": "Soft-Skills",
+      "title": "Soft Skills",
       "skills": [
         {
-          "label": "Teamwork",
+          "label": "Trabalho em Equipe",
           "badge": "T",
           "bgColor": "#f1602a",
           "textColor": "#fff"
         },
         {
-          "label": "Communication",
+          "label": "Comunicação",
           "badge": "C",
           "bgColor": "#ff9500",
           "textColor": "#fff"
         },
         {
-          "label": "Proactivity",
+          "label": "Proatividade",
           "badge": "P",
           "bgColor": "#4caf50",
           "textColor": "#fff"
