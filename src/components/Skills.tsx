@@ -30,7 +30,6 @@ export default function Skills({ groups }: SkillsProps) {
         if (!group || typeof group !== 'object') {
           return null;
         }
-
         return (
           <div key={`skill-group-${groupIndex}`} className="skill-group">
             <h4>{group.title ?? ''}</h4>
@@ -39,7 +38,6 @@ export default function Skills({ groups }: SkillsProps) {
                 if (!skill || typeof skill !== 'object') {
                   return null;
                 }
-
                 return (
                   <span key={`skill-${groupIndex}-${skillIndex}`} className="skill-pill">
                     <span className="sq" style={{ background: skill.bgColor ?? '#000000', color: skill.textColor ?? '#ffffff' }}>
