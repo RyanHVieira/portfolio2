@@ -1,108 +1,12 @@
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import type { ProjectFunction } from "../data/projects";
+import { coplaceFunctions } from "../data/projects";
+import { useTranslation, useTranslationObject } from "../i18n/useTranslation";
+import "../styles/ProjectDetail.css";
 
-// Mock function data for demonstration
-// In a real app, this could come from an API or be part of the project object
-const projectFunctions: Record<string, ProjectFunction[]> = {
-  coplace: [
-    {
-      id: 1,
-      title: "Conexão de Pessoas",
-      description: "Conecte indivíduos com interesses semelhantes para colaborar em projetos",
-      image: "/projects/image1.png"
-    },
-    {
-      id: 2,
-      title: "Gestão de Projetos",
-      description: "Ferramentas completas para planejar, executar e acompanhar nossos projetos",
-      image: "/projects/image2.png"
-    },
-    {
-      id: 3,
-      title: "Comunidade Ativa",
-      description: "Participe de discussões, compartilhe conhecimento e cresça juntos",
-      image: "/projects/image3.png"
-    }
-  ],
-  "pixel-canvas": [
-    {
-      id: 1,
-      title: "Canvas Colaborativo",
-      description: "Desenhe simultaneamente com outros usuários em tempo real",
-      image: "/projects/image1.png"
-    },
-    {
-      id: 2,
-      title: "Paleta de Cores",
-      description: "Acesse uma vasta gama de cores para suas criações",
-      image: "/projects/image2.png"
-    },
-    {
-      id: 3,
-      title: "Salvar e Compartilhar",
-      description: "Salve suas artes e compartilhe com a comunidade",
-      image: "/projects/image3.png"
-    }
-  ],
-  "outro-projeto": [
-    {
-      id: 1,
-      title: "Funcionalidade Principal",
-      description: "Descrição da funcionalidade principal deste projeto",
-      image: "/projects/image1.png"
-    },
-    {
-      id: 2,
-      title: "Interface Intuitiva",
-      description: "Design pensado para facilitar o uso pelo usuário final",
-      image: "/projects/image2.png"
-    },
-    {
-      id: 3,
-      title: "Performance Otimizada",
-      description: "Carregamento rápido e experiência fluida em todos os dispositivos",
-      image: "/projects/image3.png"
-    }
-  ],
-  "outro-projeto2": [
-    {
-      id: 1,
-      title: "Funcionalidade A",
-      description: "Primeira funcionalidade do segundo outro projeto",
-      image: "/projects/image1.png"
-    },
-    {
-      id: 2,
-      title: "Funcionalidade B",
-      description: "Segunda funcionalidade com foco em usabilidade",
-      image: "/projects/image2.png"
-    },
-    {
-      id: 3,
-      title: "Integração",
-      description: "Integração com outras plataformas e servicios",
-      image: "/projects/image3.png"
-    }
-  ],
-  "outro-projeto3": [
-    {
-      id: 1,
-      title: "Recurso Destacado",
-      description: "O recurso que diferencia este projeto dos demais",
-      image: "/projects/image1.png"
-    },
-    {
-      id: 2,
-      title: "Escalabilidade",
-      description: "Arquitetura preparada para crescimento e aumento de usuários",
-      image: "/projects/image2.png"
-    },
-    {
-      id: 3,
-      title: "Segurança",
-      description: "Proteção de dados e privacidade como prioridade máxima",
-      image: "/projects/image3.png"
-    }
-  ]
+const defaultProjectFunctions: Record<string, ProjectFunction[]> = {
+  coplace: coplaceFunctions,
 };
 
 interface FunctionCardsProps {
@@ -110,7 +14,48 @@ interface FunctionCardsProps {
 }
 
 export default function FunctionCards({ slug }: FunctionCardsProps) {
-  const functions = projectFunctions[slug as keyof typeof projectFunctions] || [];
+  const t = useTranslation();
+  const tObject = useTranslationObject();
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const localizedFunctionsRaw = tObject(`projects.${slug}.functions`);
+  const functions: ProjectFunction[] =
+    Array.isArray(localizedFunctionsRaw) && localizedFunctionsRaw.length > 0
+      ? localizedFunctionsRaw
+      : defaultProjectFunctions[slug] || [];
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedImageIndex !== null) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
+    }
+  }, [selectedImageIndex]);
+
+  // Close modal on escape key, navigate with left/right arrows
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedImageIndex(null);
+      } else if (e.key === "ArrowRight" && selectedImageIndex !== null) {
+        setSelectedImageIndex((current) =>
+          current !== null && current < functions.length - 1 ? current + 1 : current
+        );
+      } else if (e.key === "ArrowLeft" && selectedImageIndex !== null) {
+        setSelectedImageIndex((current) =>
+          current !== null && current > 0 ? current - 1 : current
+        );
+      }
+    };
+
+    if (selectedImageIndex !== null) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImageIndex, functions.length]);
 
   if (functions.length === 0) {
     return (
@@ -120,74 +65,106 @@ export default function FunctionCards({ slug }: FunctionCardsProps) {
         fontStyle: 'italic',
         marginTop: '2rem'
       }}>
-        Nenhuma funcionalidade disponível para este projeto.
+        {t('projectDetail.noFunctions') !== 'projectDetail.noFunctions'
+          ? t('projectDetail.noFunctions')
+          : 'Nenhuma funcionalidade disponível para este projeto.'}
       </p>
     );
   }
 
-  return (
-    <div style={{
-      display: 'grid',
-      gap: '2rem',
-      marginTop: '2rem'
-    }}>
-      {functions.map((func) => (
-        <FunctionCard key={func.id} func={func} />
-      ))}
-    </div>
-  );
-}
+  const selectedFunc = selectedImageIndex !== null ? functions[selectedImageIndex] : null;
 
-interface FunctionCardProps {
-  func: ProjectFunction;
-}
+  const modalNode = selectedFunc && selectedImageIndex !== null ? (
+    <div className="image-modal-overlay" onClick={() => setSelectedImageIndex(null)}>
+      <div className="image-modal-window" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <div className="modal-title-group">
+            <span className="modal-counter">
+              0{selectedImageIndex + 1} / 0{functions.length}
+            </span>
+            <h3 className="modal-title">{selectedFunc.title}</h3>
+          </div>
+          <button
+            className="modal-close-btn"
+            onClick={() => setSelectedImageIndex(null)}
+            aria-label={t('projectDetail.closeModal') !== 'projectDetail.closeModal'
+              ? t('projectDetail.closeModal')
+              : 'Fechar'}
+          >
+            ✕
+          </button>
+        </div>
 
-function FunctionCard({ func }: FunctionCardProps) {
-  return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: '1.5rem',
-      padding: '1.5rem',
-      border: '1px solid #333',
-      borderRadius: '8px',
-      backgroundColor: 'rgba(255,255,255,0.05)'
-    }}>
-      <div style={{ flex: 1 }}>
-        <h3 style={{
-          margin: '0 0 0.5rem 0',
-          color: '#fff',
-          fontSize: '1.25rem'
-        }}>
-          {func.title}
-        </h3>
-        <p style={{
-          margin: '0',
-          color: '#ccc',
-          lineHeight: '1.5'
-        }}>
-          {func.description}
-        </p>
-      </div>
+        <div className="modal-body">
+          <button
+            className="modal-nav-btn modal-nav-prev"
+            onClick={() => setSelectedImageIndex(selectedImageIndex - 1)}
+            disabled={selectedImageIndex === 0}
+            aria-label="Anterior"
+          >
+            ◀
+          </button>
 
-      <div style={{
-        flex: '0 0 150px',
-        width: '150px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        <img
-          src={func.image}
-          alt={func.title}
-          style={{
-            maxWidth: '100%',
-            maxHeight: '150px',
-            borderRadius: '4px',
-            objectFit: 'contain'
-          }}
-        />
+          <div className="modal-image-wrapper">
+            <img
+              src={selectedFunc.image}
+              alt={selectedFunc.title}
+              className="modal-image-preview"
+            />
+          </div>
+
+          <button
+            className="modal-nav-btn modal-nav-next"
+            onClick={() => setSelectedImageIndex(selectedImageIndex + 1)}
+            disabled={selectedImageIndex === functions.length - 1}
+            aria-label="Próximo"
+          >
+            ▶
+          </button>
+        </div>
+
+        <div className="modal-footer">
+          <p className="modal-description">{selectedFunc.description}</p>
+        </div>
       </div>
     </div>
+  ) : null;
+
+  return (
+    <>
+      <div className="function-cards-container">
+        {functions.map((func, index) => (
+          <div key={func.id ?? index} className="function-card-item">
+            <div className="function-card-content">
+              <div className="function-card-header">
+                <span className="function-card-badge">0{index + 1}</span>
+                <h3 className="function-card-title">{func.title}</h3>
+              </div>
+              <p className="function-card-desc">{func.description}</p>
+            </div>
+
+            <div
+              className="function-card-image-box"
+              onClick={() => setSelectedImageIndex(index)}
+              title={t('projectDetail.viewScreenshot') !== 'projectDetail.viewScreenshot'
+                ? t('projectDetail.viewScreenshot')
+                : 'Clique para ampliar'}
+            >
+              <img
+                src={func.image}
+                alt={func.title}
+                className="function-card-img"
+                loading="lazy"
+              />
+              <span className="function-card-zoom-hint">🔍 Expandir</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {typeof document !== "undefined" && modalNode
+        ? createPortal(modalNode, document.body)
+        : modalNode}
+    </>
   );
 }

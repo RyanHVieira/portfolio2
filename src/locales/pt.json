@@ -22,7 +22,11 @@
   },
   "skills": {
     "title": "",
-    "category": "Habilidades"
+    "category": "Habilidades",
+    "languages": "Linguagens",
+    "frameworks": "Frameworks & Bibliotecas",
+    "tools": "Ferramentas",
+    "softSkills": "Soft Skills"
   },
   "projectCard": {
     "detailsButton": "Detalhes do projeto"
@@ -39,164 +43,61 @@
     "backLink": "← Voltar",
     "notFoundTitle": "Projeto não encontrado",
     "notFoundDescription": "O projeto solicitado não existe.",
-    "backLinkAlt": "← Voltar"
+    "backLinkAlt": "← Voltar",
+    "noFunctions": "Nenhuma funcionalidade disponível para este projeto.",
+    "viewScreenshot": "Clique para ampliar a imagem",
+    "closeModal": "Fechar"
   },
   "projects": {
     "coplace": {
       "title": "CoPlace",
-      "description": "Uma plataforma desenvolvida para conectar pessoas e projetos."
-    },
-    "pixel-canvas": {
-      "title": "Pixel Canvas",
-      "description": "Uma plataforma colaborativa de pixel art."
-    },
-    "outro-projeto": {
-      "title": "Outro Projeto",
-      "description": "Descrição do meu projeto."
-    },
-    "outro-projeto2": {
-      "title": "Outro Projeto2",
-      "description": "Descrição do meu projeto."
-    },
-    "outro-projeto3": {
-      "title": "Outro Projeto3",
-      "description": "Descrição do meu projeto."
+      "description": "Plataforma colaborativa para criação de Pixel Art em tempo real. Os usuários podem se autenticar, explorar ou criar salas personalizadas através de slugs, e desenhar juntos em um canvas interativo com paleta de cores completa.",
+      "functions": [
+        {
+          "id": 1,
+          "title": "Autenticação de Usuários",
+          "description": "Sistema de login seguro para que usuários possam acessar suas contas, salvar suas criações e entrar em salas de desenho com seu perfil.",
+          "image": "/projects/coplace/Login.png"
+        },
+        {
+          "id": 2,
+          "title": "Cadastro com Validação de Senha",
+          "description": "Formulário de cadastro intuitivo com regras de segurança em tempo real, exigindo ao menos 8 caracteres, maiúsculas, minúsculas e caracteres especiais.",
+          "image": "/projects/coplace/Cadastro.png"
+        },
+        {
+          "id": 3,
+          "title": "Lobby e Busca de Salas",
+          "description": "Pesquisa dinâmica de salas de canvas diretamente pela interface ou via slug na URL (ex: /canvas/bnv), integrando sessão de usuário e opção de sair.",
+          "image": "/projects/coplace/BuscaCanvas.png"
+        },
+        {
+          "id": 4,
+          "title": "Canvas Colaborativo e Paleta de Cores",
+          "description": "Grade de pixels interativa em tempo real com paleta de cores diversificada, permitindo múltiplos participantes criarem pixel art de forma sincronizada.",
+          "image": "/projects/coplace/Canva.png"
+        }
+      ]
     }
   },
-  "skillsData": [
+  "softSkills": [
     {
-      "title": "Linguagens",
-      "skills": [
-        {
-          "label": "JavaScript",
-          "badge": "JS",
-          "bgColor": "#f7df1e",
-          "textColor": "#1a1200"
-        },
-        {
-          "label": "Java",
-          "badge": "J",
-          "bgColor": "#007396",
-          "textColor": "#fff"
-        },
-        {
-          "label": "HTML",
-          "badge": "H",
-          "bgColor": "#e34c26",
-          "textColor": "#fff"
-        },
-        {
-          "label": "CSS",
-          "badge": "C",
-          "bgColor": "#563d7c",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Python",
-          "badge": "Py",
-          "bgColor": "#3776ab",
-          "textColor": "#fff"
-        },
-        {
-          "label": "TypeScript",
-          "badge": "TS",
-          "bgColor": "#000080",
-          "textColor": "#fff"
-        }
-      ]
+      "label": "Trabalho em Equipe",
+      "badge": "T",
+      "bgColor": "#f1602a",
+      "textColor": "#fff"
     },
     {
-      "title": "Frameworks & Bibliotecas",
-      "skills": [
-        {
-          "label": "React",
-          "badge": "R",
-          "bgColor": "#61dafb",
-          "textColor": "#06222b"
-        },
-        {
-          "label": "Node.js",
-          "badge": "N",
-          "bgColor": "#68a063",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Angular",
-          "badge": "A",
-          "bgColor": "#ff3e00",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Spring Boot",
-          "badge": "SB",
-          "bgColor": "#007396",
-          "textColor": "#fff"
-        }
-      ]
+      "label": "Comunicação",
+      "badge": "C",
+      "bgColor": "#ff9500",
+      "textColor": "#fff"
     },
     {
-      "title": "Ferramentas",
-      "skills": [
-        {
-          "label": "Git",
-          "badge": "G",
-          "bgColor": "#f1602a",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Docker",
-          "badge": "D",
-          "bgColor": "#007396",
-          "textColor": "#fff"
-        },
-        {
-          "label": "VS Code",
-          "badge": "VS",
-          "bgColor": "#2496ed",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Figma",
-          "badge": "F",
-          "bgColor": "#001e36",
-          "textColor": "#00d4ff"
-        },
-        {
-          "label": "Postman",
-          "badge": "P",
-          "bgColor": "#9999cc",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Webpack",
-          "badge": "W",
-          "bgColor": "#007acc",
-          "textColor": "#fff"
-        }
-      ]
-    },
-    {
-      "title": "Soft Skills",
-      "skills": [
-        {
-          "label": "Trabalho em Equipe",
-          "badge": "T",
-          "bgColor": "#f1602a",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Comunicação",
-          "badge": "C",
-          "bgColor": "#ff9500",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Proatividade",
-          "badge": "P",
-          "bgColor": "#4caf50",
-          "textColor": "#fff"
-        }
-      ]
+      "label": "Proatividade",
+      "badge": "P",
+      "bgColor": "#4caf50",
+      "textColor": "#fff"
     }
   ],
   "experienceData": [

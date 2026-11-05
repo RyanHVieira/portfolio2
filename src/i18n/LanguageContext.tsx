@@ -1,32 +1,48 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
+import { LanguageContext } from './context';
 
-interface LanguageContextProps {
-  language: 'en' | 'pt';
-  setLanguage: (lang: 'en' | 'pt') => void;
-  t: (key: string) => string;
-  tObject: (key: string) => any;
-}
-
-const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+const getInitialLanguage = (): 'en' | 'pt' => {
+  try {
+    const saved = localStorage.getItem('portfolio_language');
+    if (saved === 'en' || saved === 'pt') {
+      return saved;
+    }
+  } catch {
+    // ignore storage errors
   }
-  return context;
+
+  if (typeof navigator !== 'undefined') {
+    const userLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+    for (const lang of userLanguages) {
+      if (lang && lang.toLowerCase().startsWith('pt')) {
+        return 'pt';
+      }
+    }
+  }
+
+  return 'en';
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<'en' | 'pt'>('en');
+  const [language, setLanguageState] = useState<'en' | 'pt'>(getInitialLanguage);
   const [translations, setTranslations] = useState<Record<string, any>>({});
 
   useEffect(() => {
+    document.documentElement.lang = language;
     import(`../locales/${language}.json`).then(module => {
       setTranslations(module.default);
     });
   }, [language]);
+
+  const setLanguage = (lang: 'en' | 'pt') => {
+    setLanguageState(lang);
+    try {
+      localStorage.setItem('portfolio_language', lang);
+    } catch {
+      // ignore
+    }
+  };
 
   const t = (key: string): string => {
     const value = key.split('.').reduce((obj, k) => (obj && obj[k] !== null && obj[k] !== undefined) ? obj[k] : undefined, translations);

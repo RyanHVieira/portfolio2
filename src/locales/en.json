@@ -22,7 +22,11 @@
   },
   "skills": {
     "title": "",
-    "category": "Skills"
+    "category": "Skills",
+    "languages": "Languages",
+    "frameworks": "Frameworks & Libraries",
+    "tools": "Tools",
+    "softSkills": "Soft Skills"
   },
   "projectCard": {
     "detailsButton": "Project Details"
@@ -39,164 +43,61 @@
     "backLink": "← Back",
     "notFoundTitle": "Project not found",
     "notFoundDescription": "The requested project does not exist.",
-    "backLinkAlt": "← Back"
+    "backLinkAlt": "← Back",
+    "noFunctions": "No features available for this project.",
+    "viewScreenshot": "Click to view full screenshot",
+    "closeModal": "Close"
   },
   "projects": {
     "coplace": {
       "title": "CoPlace",
-      "description": "A platform developed to connect people and projects."
-    },
-    "pixel-canvas": {
-      "title": "Pixel Canvas",
-      "description": "A collaborative pixel art platform."
-    },
-    "outro-projeto": {
-      "title": "Another Project",
-      "description": "Description of my project."
-    },
-    "outro-projeto2": {
-      "title": "Another Project 2",
-      "description": "Description of my project."
-    },
-    "outro-projeto3": {
-      "title": "Another Project 3",
-      "description": "Description of my project."
+      "description": "Collaborative real-time Pixel Art creation platform. Users can authenticate, discover or create custom rooms using slugs, and draw together on an interactive canvas with a complete color palette.",
+      "functions": [
+        {
+          "id": 1,
+          "title": "User Authentication",
+          "description": "Secure login system enabling users to access their accounts, manage their creations, and enter drawing rooms with their profile.",
+          "image": "/projects/coplace/Login.png"
+        },
+        {
+          "id": 2,
+          "title": "Sign Up with Password Validation",
+          "description": "Intuitive registration form with real-time security rules, requiring at least 8 characters, uppercase, lowercase, and special characters.",
+          "image": "/projects/coplace/Cadastro.png"
+        },
+        {
+          "id": 3,
+          "title": "Lobby & Room Search",
+          "description": "Dynamic search for canvas rooms directly from the interface or via URL slug (e.g. /canvas/bnv), featuring active session display and logout.",
+          "image": "/projects/coplace/BuscaCanvas.png"
+        },
+        {
+          "id": 4,
+          "title": "Collaborative Canvas & Color Palette",
+          "description": "Real-time interactive pixel grid with a rich color palette, allowing multiple users to draw and create pixel art in synchronization.",
+          "image": "/projects/coplace/Canva.png"
+        }
+      ]
     }
   },
-  "skillsData": [
+  "softSkills": [
     {
-      "title": "Languages",
-      "skills": [
-        {
-          "label": "JavaScript",
-          "badge": "JS",
-          "bgColor": "#f7df1e",
-          "textColor": "#1a1200"
-        },
-        {
-          "label": "Java",
-          "badge": "J",
-          "bgColor": "#007396",
-          "textColor": "#fff"
-        },
-        {
-          "label": "HTML",
-          "badge": "H",
-          "bgColor": "#e34c26",
-          "textColor": "#fff"
-        },
-        {
-          "label": "CSS",
-          "badge": "C",
-          "bgColor": "#563d7c",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Python",
-          "badge": "Py",
-          "bgColor": "#3776ab",
-          "textColor": "#fff"
-        },
-        {
-          "label": "TypeScript",
-          "badge": "TS",
-          "bgColor": "#000080",
-          "textColor": "#fff"
-        }
-      ]
+      "label": "Teamwork",
+      "badge": "T",
+      "bgColor": "#f1602a",
+      "textColor": "#fff"
     },
     {
-      "title": "Frameworks & Libraries",
-      "skills": [
-        {
-          "label": "React",
-          "badge": "R",
-          "bgColor": "#61dafb",
-          "textColor": "#06222b"
-        },
-        {
-          "label": "Node.js",
-          "badge": "N",
-          "bgColor": "#68a063",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Angular",
-          "badge": "A",
-          "bgColor": "#ff3e00",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Spring Boot",
-          "badge": "SB",
-          "bgColor": "#007396",
-          "textColor": "#fff"
-        }
-      ]
+      "label": "Communication",
+      "badge": "C",
+      "bgColor": "#ff9500",
+      "textColor": "#fff"
     },
     {
-      "title": "Tools",
-      "skills": [
-        {
-          "label": "Git",
-          "badge": "G",
-          "bgColor": "#f1602a",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Docker",
-          "badge": "D",
-          "bgColor": "#007396",
-          "textColor": "#fff"
-        },
-        {
-          "label": "VS Code",
-          "badge": "VS",
-          "bgColor": "#2496ed",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Figma",
-          "badge": "F",
-          "bgColor": "#001e36",
-          "textColor": "#00d4ff"
-        },
-        {
-          "label": "Postman",
-          "badge": "P",
-          "bgColor": "#9999cc",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Webpack",
-          "badge": "W",
-          "bgColor": "#007acc",
-          "textColor": "#fff"
-        }
-      ]
-    },
-    {
-      "title": "Soft Skills",
-      "skills": [
-        {
-          "label": "Teamwork",
-          "badge": "T",
-          "bgColor": "#f1602a",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Communication",
-          "badge": "C",
-          "bgColor": "#ff9500",
-          "textColor": "#fff"
-        },
-        {
-          "label": "Proactivity",
-          "badge": "P",
-          "bgColor": "#4caf50",
-          "textColor": "#fff"
-        }
-      ]
+      "label": "Proactivity",
+      "badge": "P",
+      "bgColor": "#4caf50",
+      "textColor": "#fff"
     }
   ],
   "experienceData": [

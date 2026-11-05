@@ -49,8 +49,6 @@ export default function ProjectHolder({ projects }: ProjectHolderProps) {
           if (offset === 0) position = "center";
           else if (offset === 1) position = "right";
           else if (offset === projects.length - 1) position = "left";
-
-          // Get localized title and description, fallback to original if translation missing
           const localizedTitle = t(`projects.${project.slug}.title`) || project.title;
           const localizedDescription = t(`projects.${project.slug}.description`) || project.description;
 

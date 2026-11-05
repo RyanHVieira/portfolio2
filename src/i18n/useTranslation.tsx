@@ -1,4 +1,13 @@
-import { useLanguage } from './LanguageContext';
+import { useContext } from 'react';
+import { LanguageContext } from './context';
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
 
 export const useTranslation = () => {
   const { t } = useLanguage();
@@ -9,5 +18,3 @@ export const useTranslationObject = () => {
   const { tObject } = useLanguage();
   return tObject;
 };
-
-export { useLanguage };

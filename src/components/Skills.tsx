@@ -1,18 +1,9 @@
 import "../styles/Skills.css";
 import Panel from "./Panel";
 import { useTranslation } from "../i18n/useTranslation";
+import type { SkillGroup, SkillItem } from "../data/skills";
 
-interface SkillItem {
-  label: string;
-  badge: string;
-  bgColor: string;
-  textColor: string;
-}
-
-interface SkillGroup {
-  title: string;
-  skills: SkillItem[];
-}
+export type { SkillGroup, SkillItem };
 
 interface SkillsProps {
   groups?: SkillGroup[];
